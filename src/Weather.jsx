@@ -5,21 +5,26 @@ export default function Weather(){
 
     const [city, setCity] = useState();
     const [weather, setWeather] = useState();
+
     const handleCityChange = (event) => {
         setCity(event.target.value)
     }
     
     const fetchWeather = async() => {
-        try{
+
+        try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${'3976dc4bb9916bdfffac93e9b414354f'}`)
             console.log(response);
             setWeather(response);  
         }
-        catch(error){
+        
+        catch(error) {
             alert('not found', error);
         }   
-        
-    } 
+            
+    }
+     
+    
     const handleWeather = () => {
         fetchWeather();  
     }
@@ -33,7 +38,7 @@ export default function Weather(){
             {weather && <>
                 <div className='weather-info'>
                     <h3>{weather.data.name}</h3>
-                    <p>Temperature is {weather.data.main.temp}</p>
+                    <p>Temperature is {weather.data.main.temp}C</p>
                     <p>{weather.data.weather[0].description}</p>               
                 </div>
             </>}

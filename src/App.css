@@ -65,7 +65,9 @@ body {
   text-align: center;
 }
 
-h1 {
+h1, h3, p {
+  color: white;
+  text-align: center;
   filter: drop-shadow(0 0 10px white);
 }
 input {
